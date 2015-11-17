@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: ecommerce
+        psr4_prefix: ecommerce
+        src_path: app
