@@ -30,6 +30,9 @@
                     <a href="{{route('admin.products.edit',['id'=>$product->id])}}" class="btn-sm btn btn-primary">
                         Editar
                     </a>
+                    <a href="{{route('admin.images.index',['id'=>$product->id])}}" class="btn-sm btn btn-primary">
+                        Images
+                    </a>
                     <a href="{{route('admin.products.destroy',['id'=>$product->id])}}" class="btn-sm btn btn-danger">
                         Delete
                     </a>

@@ -32,6 +32,10 @@ Route::group(['prefix'=>'admin','middleware'=>'auth.checkrole:admin','as'=>'admi
     Route::post('products/store',['as'=>'products.store','uses'=> 'ProductsController@store']);
     Route::get('products/destroy/{id}',['as'=>'products.destroy','uses'=> 'ProductsController@destroy']);
 
+    Route::get('images/{id}',['as'=>'images.index','uses'=> 'ProductImageController@index']);
+    Route::get('images/create/{id}',['as'=>'images.create','uses'=> 'ProductImageController@createImage']);
+    Route::post('images/store/{id}',['as'=>'images.store','uses'=> 'ProductImageController@storeImage']);
+    Route::get('images/destroy/{id}',['as'=>'images.destroy','uses'=> 'ProductImageController@destroyImage']);
 
 
     Route::get('clients',['as'=>'clients.index','uses'=> 'ClientsController@index']);

@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => pagfacu\Models\User::class,
+    'model' => ecommerce\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------
