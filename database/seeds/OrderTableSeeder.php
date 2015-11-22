@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use pagfacu\Models\Order;
-use pagfacu\Models\OrderItem;
+use ecommerce\Models\Order;
+use ecommerce\Models\OrderItem;
 
 class OrderTableSeeder extends Seeder
 {

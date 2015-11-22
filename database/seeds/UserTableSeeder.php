@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use pagfacu\Models\User;
-use pagfacu\Models\Client;
+use ecommerce\Models\User;
+use ecommerce\Models\Client;
 
 class UserTableSeeder extends Seeder
 {

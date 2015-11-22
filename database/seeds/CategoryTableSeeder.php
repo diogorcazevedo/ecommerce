@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use pagfacu\Models\Category;
-use pagfacu\Models\Product;
+use ecommerce\Models\Category;
+use ecommerce\Models\Product;
 
 class CategoryTableSeeder extends Seeder
 {

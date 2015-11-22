@@ -31,7 +31,7 @@ return [
 
         'password' => [
             'class' => '\League\OAuth2\Server\Grant\PasswordGrant',
-            'callback' => '\pagfacu\OAuth2\PasswordVerifier@verify',
+            'callback' => '\ecommerce\OAuth2\PasswordVerifier@verify',
             'access_token_ttl' => 3600
         ],
         'refresh_token' => [

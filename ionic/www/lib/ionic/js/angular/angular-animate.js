@@ -3392,7 +3392,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  * <div ng-view class="view-animation">
  * </div>
  *
- * <!-- home.html -->
+ * <!-- login.html -->
  * <a href="#/banner-page">
  *   <img src="./banner.jpg" class="banner" ng-animate-ref="banner">
  * </a>
@@ -3491,7 +3491,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
       angular.module('anchoringExample', ['ngAnimate', 'ngRoute'])
         .config(['$routeProvider', function($routeProvider) {
           $routeProvider.when('/', {
-            templateUrl: 'home.html',
+            templateUrl: 'login.html',
             controller: 'HomeController as home'
           });
           $routeProvider.when('/profile/:id', {
@@ -3524,7 +3524,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
           this.id = record.id;
         }]);
     </file>
-    <file name="home.html">
+    <file name="login.html">
       <h2>Welcome to the home page</h1>
       <p>Please click on an element</p>
       <a class="record"

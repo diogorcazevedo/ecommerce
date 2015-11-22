@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use pagfacu\Models\Cupom;
+use ecommerce\Models\Cupom;
 
 class CupomTableSeeder extends Seeder
 {
