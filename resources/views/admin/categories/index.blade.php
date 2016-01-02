@@ -5,7 +5,7 @@
     <div class="container">
         <h3>Categorias</h3>
         <br/>
-        <a href={{route('admin.categories.create')}} class="btn btn-default btn-info">Nova Categoria</a>
+        <a href="{{route('admin.categories.create')}}"class="btn btn-default btn-info">Nova Categoria</a>
         <br/>
         <br/>
 

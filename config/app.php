@@ -146,6 +146,8 @@ return [
         LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
 
         Barryvdh\Cors\ServiceProvider::class,
+        LaravelPagseguro\LaravelPagseguroServiceProvider::class,
+
 
 
         /*

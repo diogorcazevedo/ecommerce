@@ -4,8 +4,9 @@ namespace ecommerce\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use ecommerce\Repositories\ProductRepository;
+use ecommerce\Presenters\ProductPresenter;
 use ecommerce\Models\Product;
+
 
 /**
  * Class ProductRepositoryEloquent
@@ -14,6 +15,7 @@ use ecommerce\Models\Product;
 class ProductRepositoryEloquent extends BaseRepository implements ProductRepository
 {
 
+protected $skipPresenter=true;
 
     public function lists()
     {
@@ -37,4 +39,16 @@ class ProductRepositoryEloquent extends BaseRepository implements ProductReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    /**
+     * Specify Presenter class name
+     *
+     * @return string
+     */
+    public function presenter()
+    {
+        return ProductPresenter::class;
+    }
+
+
 }

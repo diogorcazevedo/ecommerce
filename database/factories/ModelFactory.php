@@ -23,7 +23,8 @@ $factory->define(ecommerce\Models\User::class, function (Faker\Generator $faker)
 
 $factory->define(ecommerce\Models\Category::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->word
+        'name' => $faker->word,
+        'description' => $faker->sentence
 
     ];
 });
@@ -33,7 +34,10 @@ $factory->define(ecommerce\Models\Product::class, function (Faker\Generator $fak
     return [
         'name' => $faker->word,
         'description' => $faker->sentence,
-        'price' => $faker->numberBetween(10,50)
+        'price' => $faker->numberBetween(10,50),
+        'featured'  =>  $faker->word,
+        'recommended'  =>  $faker->word,
+        'colection_id' => 1,
 
     ];
 });
@@ -72,5 +76,14 @@ $factory->define(ecommerce\Models\Cupom::class, function (Faker\Generator $faker
     return [
         'code' => rand(100,1000),
         'value' => rand(50,100),
+    ];
+});
+
+$factory->define(ecommerce\Models\Colection::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'description' => $faker->sentence,
+        'image' => $faker->word
+
     ];
 });

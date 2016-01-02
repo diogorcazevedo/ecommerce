@@ -28,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Laravel</a>
+            <a class="navbar-brand" href="{{ route('store.index') }}">Store</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar">
@@ -38,6 +38,7 @@
                 @if(Auth::user())
                     @if(Auth::user()->role == 'admin')
                         <li><a href="{{route('admin.categories.index')}}">Categorias</a></li>
+                        <li><a href="{{route('admin.colections.index')}}">Coleções</a></li>
                         <li><a href="{{route('admin.products.index')}}">Produtos</a></li>
                         <li><a href="{{route('admin.clients.index')}}">Clientes</a></li>
                         <li><a href="{{route('admin.cupoms.index')}}">Cupom</a></li>

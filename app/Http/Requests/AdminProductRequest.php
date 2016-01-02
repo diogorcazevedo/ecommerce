@@ -27,7 +27,8 @@ class AdminProductRequest extends Request
             'name'=>'required',
             'description'=>'required',
             'price'=>'required',
-            'category_id'=>'required'
+            'category_id'=>'required',
+            'colection_id'=>'required',
         ];
     }
 }

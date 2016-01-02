@@ -10,9 +10,7 @@ class Category extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable =[
-        'name'
-    ];
+    protected $fillable = ['name', 'description'];
 
     public function products()
     {

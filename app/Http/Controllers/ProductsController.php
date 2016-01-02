@@ -4,6 +4,7 @@ namespace ecommerce\Http\Controllers;
 
 
 use ecommerce\Http\Requests;
+use ecommerce\Repositories\ColectionRepository;
 use ecommerce\Repositories\ProductRepository;
 use ecommerce\Repositories\CategoryRepository;
 use ecommerce\Http\Requests\AdminProductRequest;
@@ -14,15 +15,27 @@ class ProductsController extends Controller
     /**
      * @var ProductRepository
      */
-
     private $repository;
+    /**
+     * @var ColectionRepository
+     */
+    private $colectionRepository;
+    /**
+     * @var CategoryRepository
+     */
+    private $categoryRepository;
 
-    public function __construct(ProductRepository $repository, CategoryRepository $categoryRepository)
+
+
+
+    public function __construct(ProductRepository $repository,
+                                CategoryRepository $categoryRepository,
+                                ColectionRepository $colectionRepository)
 
     {
         $this->repository = $repository;
+        $this->colectionRepository = $colectionRepository;
         $this->categoryRepository = $categoryRepository;
-
     }
 
 
@@ -39,9 +52,10 @@ class ProductsController extends Controller
     public function create()
     {
         $categories =  $this->categoryRepository->lists();
+        $colections =  $this->colectionRepository->lists();
 
 
-        return view('admin/products/create',compact('categories'));
+        return view('admin/products/create',compact('colections','categories'));
 
     }
 
@@ -57,8 +71,9 @@ class ProductsController extends Controller
     {
         $product = $this->repository->find($id);
         $categories =  $this->categoryRepository->lists();
+        $colections =  $this->colectionRepository->lists();
 
-        return view('admin/products/edit',compact('product','categories'));
+        return view('admin/products/edit',compact('product','categories','colections'));
     }
 
     public function update(AdminProductRequest $request, $id)

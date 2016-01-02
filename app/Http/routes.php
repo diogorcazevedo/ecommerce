@@ -15,6 +15,45 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Rota index
+Route::get('/', 'LayoutController@index');
+Route::get('/',['as'=>'home','uses'=> 'LayoutController@index']);
+
+
+//Rota store
+Route::get('store/index',['as'=>'store.index','uses'=> 'StoreController@index']);
+
+
+//Mostrar produtos View
+Route::get('category/{id}',['as'=>'store.category','uses'=> 'StoreController@category']);
+Route::get('colection/{id}',['as'=>'store.colection','uses'=> 'StoreController@colection']);
+Route::get('product/{id}',['as'=>'store.product','uses'=> 'StoreController@product']);
+
+
+//carrinho de compra e chekout
+Route::get('cart',['as'=>'cart','uses'=> 'CartController@index']);
+Route::get('cart/add/{id}',['as'=>'cart.add','uses'=> 'CartController@add']);
+Route::get('cart/destroy/{id}',['as'=>'cart.destroy','uses'=> 'CartController@destroy']);
+
+
+
+
+//Rota AUTENTICADOS
+Route::group(['middleware'=>'auth'],function()
+{
+    //Rota account
+    Route::get('account/index',['as'=>'account.index','uses'=> 'AccountController@index']);
+    Route::get('account/orders',['as'=>'account.orders','uses'=> 'AccountController@orders']);
+
+//Rota checkout
+    Route::get('checkout/placeOrder',['as'=>'checkout.place','uses'=> 'CheckoutController@place']);
+
+});
+
+
+
+
+
 Route::group(['prefix'=>'admin','middleware'=>'auth.checkrole:admin','as'=>'admin.'],function(){
 
     Route::get('categories',['as'=>'categories.index','uses'=> 'CategoriesController@index']);
@@ -22,6 +61,18 @@ Route::group(['prefix'=>'admin','middleware'=>'auth.checkrole:admin','as'=>'admi
     Route::get('categories/edit/{id}',['as'=>'categories.edit','uses'=> 'CategoriesController@edit']);
     Route::post('categories/update/{id}',['as'=>'categories.update','uses'=> 'CategoriesController@update']);
     Route::post('categories/store',['as'=>'categories.store','uses'=> 'CategoriesController@store']);
+
+
+    Route::get('colections',['as'=>'colections.index','uses'=> 'ColectionsController@index']);
+    Route::get('colections/create',['as'=>'colections.create','uses'=> 'ColectionsController@create']);
+    Route::get('colections/edit/{id}',['as'=>'colections.edit','uses'=> 'ColectionsController@edit']);
+    Route::post('colections/update/{id}',['as'=>'colections.update','uses'=> 'ColectionsController@update']);
+    Route::post('colections/store',['as'=>'colections.store','uses'=> 'ColectionsController@store']);
+
+    Route::get('colectionsimage/{id}',['as'=>'colectionsimage.index','uses'=> 'ColectionsImageController@index']);
+    Route::get('colectionsimage/create/{id}',['as'=>'colectionsimage.create','uses'=> 'ColectionsImageController@createImage']);
+    Route::post('colectionsimage/store/{id}',['as'=>'colectionsimage.store','uses'=> 'ColectionsImageController@storeImage']);
+    Route::get('colectionsimage/destroy/{id}',['as'=>'colectionsimage.destroy','uses'=> 'ColectionsImageController@destroyImage']);
 
 
 
@@ -70,9 +121,11 @@ Route::group(['middleware' => 'cors'], function(){
 
     Route::post('oauth/access_token', function() {
         return Response::json(Authorizer::issueAccessToken());
+
     });
     Route::group(['prefix'=>'api','middleware'=>'oauth','as'=>'api.'],function(){
 
+        //client
         Route::group(['prefix'=>'client','middleware'=>'oauth.checkrole:client','as'=>'client.'],function(){
             Route::resource(
                 'order',
@@ -80,7 +133,10 @@ Route::group(['middleware' => 'cors'], function(){
                 'except' =>['create', 'edit','destroy']
             ]);
 
+            Route::get('products','Api\Client\ClientProductController@index');
+
         });
+
 
         Route::group(['prefix'=>'deliveryman','middleware'=>'oauth.checkrole:deliveryman','as'=>'deliveryman.'],function(){
 

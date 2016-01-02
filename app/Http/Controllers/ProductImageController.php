@@ -4,13 +4,12 @@ namespace ecommerce\Http\Controllers;
 
 
 use ecommerce\Http\Requests;
+use ecommerce\Http\Requests\ProductImageRequest;
 use ecommerce\Http\Requests\ProductRequest;
 use ecommerce\Models\ProductImage;
 use ecommerce\Repositories\ProductRepository;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use ecommerce\Http\Requests\ProductImageRequest;
 
 class ProductImageController extends Controller
 {

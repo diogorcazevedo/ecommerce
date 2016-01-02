@@ -20,6 +20,11 @@ class RepositoryServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            'ecommerce\Repositories\ColectionRepository',
+            'ecommerce\Repositories\ColectionRepositoryEloquent'
+        );
+
+        $this->app->bind(
             'ecommerce\Repositories\ProductRepository',
             'ecommerce\Repositories\ProductRepositoryEloquent'
         );
@@ -40,6 +45,16 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             'ecommerce\Repositories\CupomRepository',
             'ecommerce\Repositories\CupomRepositoryEloquent'
+        );
+
+        $this->app->bind(
+            'ecommerce\Repositories\ProductImageRepository',
+            'ecommerce\Repositories\ProductImageRepositoryEloquent'
+        );
+
+        $this->app->bind(
+            'ecommerce\Repositories\ColectionImageRepository',
+            'ecommerce\Repositories\ColectionImageRepositoryEloquent'
         );
     }
 }

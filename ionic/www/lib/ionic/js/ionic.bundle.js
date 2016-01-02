@@ -9975,7 +9975,7 @@ function sliceArgs(args, startIndex) {
  * @description
  * Returns a function which calls function `fn` bound to `self` (`self` becomes the `this` for
  * `fn`). You can supply optional `args` that are prebound to the function. This feature is also
- * known as [partial application](http://en.wikipedia.org/wiki/Partial_application), as
+ * known as [modal application](http://en.wikipedia.org/wiki/Partial_application), as
  * distinguished from [function currying](http://en.wikipedia.org/wiki/Currying#Contrast_with_partial_function_application).
  *
  * @param {Object} self Context which `fn` should be evaluated in.
@@ -25195,7 +25195,7 @@ function adjustMatcher(matcher) {
     return new RegExp('^' + matcher + '$');
   } else if (isRegExp(matcher)) {
     // The only other type of matcher allowed is a Regexp.
-    // Match entire URL / disallow partial matches.
+    // Match entire URL / disallow modal matches.
     // Flags are reset (i.e. no global, ignoreCase or multiline)
     return new RegExp('^' + matcher.source + '$');
   } else {
@@ -32708,7 +32708,7 @@ var ngIfDirective = ['$animate', function($animate) {
  *
  * @param {string} ngInclude|src angular expression evaluating to URL. If the source is a string constant,
  *                 make sure you wrap it in **single** quotes, e.g. `src="'myPartialTemplate.html'"`.
- * @param {string=} onload Expression to evaluate when a new partial is loaded.
+ * @param {string=} onload Expression to evaluate when a new modal is loaded.
  *
  * @param {string=} autoscroll Whether `ngInclude` should call {@link ng.$anchorScroll
  *                  $anchorScroll} to scroll the viewport after the content is loaded.
@@ -44935,7 +44935,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * <pre>
      * $state.$current.name = 'contacts.details.item';
      *
-     * // Using partial names
+     * // Using modal names
      * $state.includes("contacts"); // returns true
      * $state.includes("contacts.details"); // returns true
      * $state.includes("contacts.details.item"); // returns true
@@ -44960,7 +44960,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * $state.includes("item.**"); // returns false
      * </pre>
      *
-     * @param {string} stateOrName A partial name, relative name, or glob pattern
+     * @param {string} stateOrName A modal name, relative name, or glob pattern
      * to be searched for within the current state name.
      * @param {object=} params A param object, e.g. `{sectionId: section.id}`,
      * that you'd like to test against the current active state.

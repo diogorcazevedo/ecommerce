@@ -16,9 +16,14 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->integer('colection_id')->unsigned();
+            $table->foreign('colection_id')->references('id')->on('colections');
             $table->string('name');
             $table->text('description');
             $table->decimal('price');
+            $table->string('featured',200);
+            $table->text('recommended');
+            $table->integer('store');
             $table->timestamps();
         });
     }

@@ -13,7 +13,9 @@
         "illuminate/html": "^5.0@dev",
         "lucadegasperi/oauth2-server-laravel": "5.0.*",
         "league/fractal": "^0.13.0@dev",
-        "barryvdh/laravel-cors": "0.7.x"
+        "barryvdh/laravel-cors": "0.7.x",
+        "phpsc/pagseguro": "1.0.*",
+        "wesleywillians/laravel-pagseguro": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

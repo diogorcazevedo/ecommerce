@@ -10,6 +10,7 @@ class OrderItem extends Model implements Transformable
 {
     use TransformableTrait;
 
+
     protected $fillable =[
         'product_id',
         'order_id',

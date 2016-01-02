@@ -53,6 +53,10 @@ return [
             'root'   => public_path().'/uploads'
         ],
 
+        'public_colection' => [
+            'driver' => 'local',
+            'root'   => public_path().'/uploads/colections'
+        ],
 
         'ftp' => [
             'driver'   => 'ftp',
