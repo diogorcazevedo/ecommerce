@@ -77,6 +77,7 @@ angular.module('starter', [
                 template: '<ion-nav-view/>'
             })
             .state('client.checkout', {
+                cache:false,
                 url: '/checkout',
                 templateUrl: "templates/client/checkout.html",
                 controller: 'ClientCheckoutCtrl'
@@ -84,12 +85,20 @@ angular.module('starter', [
 
 
             .state('client.checkout_item_detail', {
+                cache:false,
                 url: '/checkout/detail/:index',
                 templateUrl: "templates/client/checkout_item_detail.html",
                 controller: 'ClientCheckoutDetailCtrl'
             })
 
+            .state('client.checkout_successful', {
+                url: '/checkout/successful',
+                templateUrl: "templates/client/checkout_successful.html",
+                controller: 'ClientCheckoutSuccessfulCtrl'
+            })
+
             .state('client.view_products', {
+                cache:false,
                 url: '/view_products',
                 templateUrl: "templates/client/view_products.html",
                 controller: 'ClientViewProductsCtrl'
@@ -98,7 +107,3 @@ angular.module('starter', [
         // For any unmatched url, redirect to /state1
         //  $urlRouterProvider.otherwise("/");
     })
-
-.service('cart',function(){
-        this.items =[];
-    });
