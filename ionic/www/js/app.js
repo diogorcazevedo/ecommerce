@@ -7,11 +7,11 @@
 angular.module('starter.controllers', []);
 angular.module('starter.services', []);
 angular.module('starter', [
-    'ionic', 'starter.controllers','starter.services', 'angular-oauth2','ngResource'
+    'ionic', 'starter.controllers','starter.services', 'angular-oauth2','ngResource','ngCordova'
 ])
 
     .constant('appConfig', {
-        baseUrl: 'http://localhost/ecommerce/public/'
+        baseUrl: 'http://192.168.0.12:8000/'
     })
 
 
@@ -85,25 +85,24 @@ angular.module('starter', [
 
 
             .state('client.checkout_item_detail', {
-                cache:false,
                 url: '/checkout/detail/:index',
                 templateUrl: "templates/client/checkout_item_detail.html",
                 controller: 'ClientCheckoutDetailCtrl'
             })
 
             .state('client.checkout_successful', {
+                cache:false,
                 url: '/checkout/successful',
                 templateUrl: "templates/client/checkout_successful.html",
                 controller: 'ClientCheckoutSuccessfulCtrl'
             })
 
             .state('client.view_products', {
-                cache:false,
                 url: '/view_products',
                 templateUrl: "templates/client/view_products.html",
                 controller: 'ClientViewProductsCtrl'
             })
         //
         // For any unmatched url, redirect to /state1
-        //  $urlRouterProvider.otherwise("/");
+          $urlRouterProvider.otherwise("/login");
     })
